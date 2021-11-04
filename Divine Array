@@ -1,0 +1,43 @@
+#include<bits/stdc++.h>
+#define endl "\n"
+#define ll long long
+#define all(v) v.begin(), v.end()
+#define sz(s) (int(s.size()))
+#define cin(vec) for(auto& i : vec) cin >> i
+#define cout(vec) for(auto& i : vec) cout<< i<<" "
+using namespace std;
+void CodeFast () {
+    cout << fixed << setprecision(0);
+    ios::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
+#ifndef ONLINE_JUDGE
+    freopen("input.txt","r",stdin),freopen("output.txt","w",stdout);
+#endif
+}
+
+int main(){
+    CodeFast();
+    int t;      cin >> t;
+    while (t--){
+        int n; cin >> n;
+        vector< int >nums(n);
+        vector< vector < int > >  ans;
+        cin(nums);
+        ans.emplace_back(nums);
+        while (n--){
+            map< int , int>mp;
+            for(auto &i:nums)
+                mp[i]++;
+            for(auto &i:nums)
+                i = mp[i];
+
+            ans.emplace_back(nums);
+        }
+        int q ;   cin >> q;
+        while (q--){
+            int x,y;     cin >> x >> y;
+            cout<< ans[min(y, sz(ans)-1)][x-1]<<endl;
+        }
+    }
+
+    return 0;
+}
