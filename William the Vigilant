@@ -1,0 +1,43 @@
+#include<bits/stdc++.h>
+#define endl "\n"
+#define ll long long
+using namespace std;
+void CodeFast (){
+    ios::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
+#ifndef ONLINE_JUDGE
+    freopen("input.txt","r",stdin),freopen("output.txt","w",stdout);
+#endif
+}
+
+int main(){
+    CodeFast();
+    ll n,q;             cin >> n >> q;
+    string  s;           cin >> s;
+    ll abc = 0;
+    map< int , char > mp;
+    for (int i = 0; i < s.size(); ++i) {
+        if(i < s.size() - 2 ){
+            if (s[i] == 'a' and s[i + 1] == 'b' and s[i + 2] == 'c')
+                abc++;
+        }
+        mp[i] = s[i];
+    }
+   // mp[s.size() - 2] = s[s.size() - 2], mp[s.size() - 1] = s[s.size() - 1];
+
+    while (q--){
+        ll x;           cin >> x;
+        char c;          cin >> c;
+        x--;
+        if (mp[x] == c) {
+            cout << abc << endl;
+            continue;
+        }
+        if((mp[x - 2] == 'a' and mp[x - 1] == 'b' and mp[x] == 'c') or (mp[x - 1] == 'a' and mp[x] == 'b' and mp[x + 1] == 'c') or (mp[x] == 'a' and mp[x + 1] == 'b' and mp[x + 2] == 'c'))
+            abc--;
+        mp[x] = c;
+        if((mp[x - 2] == 'a' and mp[x - 1] == 'b' and mp[x] == 'c') or (mp[x - 1] == 'a' and mp[x] == 'b' and mp[x + 1] == 'c') or (mp[x] == 'a' and mp[x + 1] == 'b' and mp[x + 2] == 'c'))
+            abc++;
+        cout << abc << endl;
+    }
+    return 0;
+}
