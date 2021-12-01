@@ -1,0 +1,39 @@
+#include<bits/stdc++.h>
+#define endl "\n"
+#define ll long long
+using namespace std;
+void CodeFast (){
+    ios::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
+#ifndef ONLINE_JUDGE
+    freopen("input.txt","r",stdin),freopen("output.txt","w",stdout);
+#endif
+}
+
+int main(){
+    CodeFast();
+    string s;
+    cin >> s;
+   int zeros1 = 0 ,ones = 0 ;
+   bool found = false;
+   vector<char>ans;
+   for(int i = 0; i <s.size();++i) {
+       if (s[i] == '0' and !found)
+           zeros1++;
+       else if (s[i] == '2' and !found) {
+           ans.emplace_back('2');
+           found = true;
+       }
+       else if (s[i] == '1')
+           ones++;
+       else
+           ans.emplace_back(s[i]);
+   }
+       for(int i = 0 ;i < zeros1 ; ++i)
+           cout << '0';
+       for(int i = 0 ;i < ones ; ++i)
+        cout << '1';
+    for(int i = 0 ;i < ans.size() ; ++i)
+        cout << ans[i];
+
+    return 0;
+}
