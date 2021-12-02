@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+#define endl "\n"
+#define ll long long
+using namespace std;
+void CodeFast (){
+    ios::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
+#ifndef ONLINE_JUDGE
+    freopen("input.txt","r",stdin),freopen("output.txt","w",stdout);
+#endif
+}
+
+int main(){
+    CodeFast();
+    int t;
+    cin >> t;
+    while (t--){
+        int n, k;
+        cin >> n >> k;
+        vector<int> students(n);
+        int teams = 0;
+        for(auto &i : students)
+            cin >> i;
+        sort(students.begin(),students.end());
+        int l = 0, r = n - 1;
+        while (l <= r){
+            if (students[r] >= k)
+                teams++,r--;
+            else if (students[l] + students[r] >=k and l!=r)
+                teams++,r--,l++;
+            else
+                l++;
+        }
+        cout << teams << endl;
+    }
+    return 0;
+}
