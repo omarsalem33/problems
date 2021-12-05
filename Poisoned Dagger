@@ -1,0 +1,43 @@
+#include<bits/stdc++.h>
+#define endl "\n"
+#define ll long long
+using namespace std;
+void CodeFast (){
+    ios::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
+#ifndef ONLINE_JUDGE
+    freopen("input.txt","r",stdin),freopen("output.txt","w",stdout);
+#endif
+}
+
+int main(){
+    CodeFast();
+    int t;
+    cin >> t;
+    while(t--){
+        ll n, h;
+        cin >> n >> h;
+        vector<ll>seconds(n);
+        for(auto& i : seconds)
+            cin >> i;
+        if (h <= n) {
+            cout << 1 << endl;
+            continue;
+        }
+        ll l = 1,r = 1e18;
+        while (l <= r){
+            ll mid =l + (r - l) / 2;
+            ll sum = 0;
+            for(int i = 0 ; i < n ; ++i) {
+                if (i == n - 1)
+                    sum += mid;
+                else sum +=min(seconds[i+1] - seconds[i] ,mid);
+            }
+            if (sum < h)
+                l = mid + 1 ;
+            else
+                r = mid - 1;
+        }
+        cout << r + 1 << endl;
+    }
+    return 0;
+}
