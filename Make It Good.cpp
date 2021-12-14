@@ -34,9 +34,7 @@ int main(){
                 break;
         }
         cout << i << nl;
-        for(int l  = 0;l < i;++l )
-            cout << nums[l] <<' ';
-        cout << nl;
+        
     }
     return 0;
 }
