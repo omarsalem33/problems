@@ -22,7 +22,7 @@ int main(){
 
         int i = n - 1;
         while (i > 0){
-            if (nums[i] < nums[i - 1])
+            if (nums[i] <= nums[i - 1])
                 i--;
             else
                 break;
