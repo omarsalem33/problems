@@ -15,26 +15,22 @@ int main(){
    while(t--) {
        ll n;
        cin >> n;
-       vector<ll>nums(n);
+       vector<ll>nums(n),divisor;
        for(auto &i : nums)
            cin >> i ;
-
+       
        sort(nums.begin(),nums.end());
        ll d = nums[0] * nums[n-1];
-       vector<ll>divisor;
-       for (ll i = 2; i * 1ll * i <= d ; ++i) {
+       
+       for (ll i = 2; i * 1ll * i <= d ; ++i) 
            if (d % i == 0) {
                divisor.emplace_back(i);
                if (d / i != i)
                    divisor.emplace_back(d / i);
            }
-       }
 
        sort(divisor.begin(),divisor.end());
-       if (nums == divisor)
-           cout << d << nl;
-       else
-           cout << -1<< nl;
+      cout << (nums == divisor ? d : -1) << nl;
    }
     return 0;
 }
