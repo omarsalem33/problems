@@ -19,7 +19,6 @@ int main(){
         cin >> a >> s ;
         bool flag = true;
         ll cnt = s.length() - a.length();
-        
         vector<ll>ans;
         ll temp1 , temp2;
         ll r = s.size() - 1;
@@ -43,7 +42,7 @@ int main(){
                 r--;
                 temp2 += (s[r] - '0') * 10;
 
-                if (temp2 - temp1 < 10 and temp2 - temp1 >= 0) {
+                if (temp2 - temp1 < 10 and temp2 - temp1 > 0) {
                     ans.emplace_back(temp2 - temp1);
                     r--;
                     cnt--;
@@ -68,7 +67,7 @@ int main(){
 
         if (flag) {
             reverse(ans.begin(), ans.end());
-            for (int i = 0; i < ans.size(); ++i) { 
+            for (int i = 0; i < ans.size(); ++i) {
                 if (ans[i] == 0 and flag == true)
                     continue;
                 cout << ans[i];
