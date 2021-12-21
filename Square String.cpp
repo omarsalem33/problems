@@ -9,20 +9,32 @@ void CodeFast (){
 #endif
 }
 
-
+void s(){
+    string s;
+    cin >> s;
+    if (s.size() % 2)
+    {
+        cout << "NO" << endl;
+        return;
+    }
+    int l = 0, r = (s.size() / 2);
+    while (l < (s.size() / 2))
+    {
+        if (s[l] != s[r])
+        {
+            cout << "NO" << nl;
+            return;
+        }
+        l++, r++;
+    }
+    cout << "YES"<<nl;
+}
 int main(){
     CodeFast();
-   int t; cin>>t;
+   int t;
+   cin >> t;
    while(t--){
-       ll n; cin >> n;
-       set<ll>s;
-       for (int i = 1; i*i <=n ; ++i) {
-           s.insert(i*i);
-       }
-       for (int i = 1; i*i* i<=n ; ++i) {
-           s.insert(i*i*i);
-       }
-       cout << s.size()<<nl;
+     s();
    }
     return 0;
 }
