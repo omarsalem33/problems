@@ -24,6 +24,6 @@ int main(){
     for(int i =  1 ; i <= 2*8 ; ++i)
         if (has8 (n+i))
             return cout << i,0;
-    cout << 1;
+ 
     return 0;
 }
