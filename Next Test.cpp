@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+#define nl "\n"
+#define ll long long
+using namespace std;
+void CodeFast (){
+    ios::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
+#ifndef ONLINE_JUDGE
+    freopen("input.txt","r",stdin),freopen("output.txt","w",stdout);
+#endif
+}
+
+int main(){
+    CodeFast();
+    int n;
+    cin >> n;
+    vector<int>nums(n);
+    for(auto& i : nums)
+        cin >> i ;
+    sort(nums.begin(),nums.end());
+    if (nums[0] != 1)
+        return cout << 1,0;
+    else
+        for (int i = 0; i < n; ++i)
+            if (nums[i] - nums[i-1] > 1)
+                return cout << nums[i-1]+1,0;
+        cout << nums.back() + 1;
+    return 0;
+}
